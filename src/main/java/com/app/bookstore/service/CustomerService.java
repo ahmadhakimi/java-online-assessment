@@ -18,6 +18,7 @@ public class CustomerService {
 
 //    inject customer jpa repository
     private final CustomerRepository customerRepository;
+    private final KafkaProducerCustomerService kafkaProducer;
 
 //    create customer business logic using CustomerDTO
     public Mono<CustomerDTO> createCustomer(CustomerDTO customerDTO) {
@@ -28,9 +29,14 @@ public class CustomerService {
                 .email_office(customerDTO.email_office())
                 .email_personal(customerDTO.email_personal())
                 .phone_no(customerDTO.phone_no())
+                .family_member(customerDTO.family_member())
                 .build();
 
-        return Mono.just(customerRepository.save(customer)).flatMap(customerEntity -> mapToCustomerDTO(customerEntity));
+
+        return Mono.just(customerRepository.save(customer)).flatMap(customerEntity -> {
+            kafkaProducer.sendCreateCustomerMessage(customerDTO);
+            return mapToCustomerDTO(customerEntity);
+        });
     }
 
 
@@ -44,12 +50,14 @@ public class CustomerService {
 //    get customer by id
     public Mono<CustomerDTO> getCustomerById(Long id) {
         log.info("Get customer by id: {}", id);
+
         return Mono.justOrEmpty(customerRepository.findById(id)).flatMap(customer->mapToCustomerDTO(customer));
     }
 
 //    update customer by id
     public Mono<CustomerDTO> updateCustomerById(Long id, CustomerDTO customerDTO) {
         log.info("Update customer ID {} details {}", id, customerDTO);
+
         return Mono.justOrEmpty(customerRepository.findById(id)).flatMap(customer -> {
             if(customerDTO.first_name() != null) {
                 customer.setFirst_name(customerDTO.first_name());
@@ -66,19 +74,44 @@ public class CustomerService {
             if(customerDTO.phone_no() != null) {
                 customer.setPhone_no(customerDTO.phone_no());
             }
+            if (customerDTO.family_member() != null) { // Updated
+                customer.setFamily_member(customerDTO.family_member());
+            }
+
             CustomerEntity save = customerRepository.save(customer);
+            kafkaProducer.sendUpdateCustomerMessage(customerDTO);
+            log.info("Update customer: {}", customerDTO.toString());
             return Mono.just(save);
         }).flatMap(savedCustomer -> mapToCustomerDTO(savedCustomer));
     }
 
 //    delete customer by id
-    public Mono<Void> deleteCustomer(Long id) {
-        log.warn("deleting customer {}",id);
-        customerRepository.deleteById(id);  // Blocking JPA call
-        return Mono.empty();
+public Mono<Void> deleteCustomer(Long id) {
+    log.warn("Deleting customer with ID: {}", id);
+    return Mono.justOrEmpty(customerRepository.findById(id))
+            .flatMap(customer -> {
+                CustomerDTO customerDTO = mapToDTO(customer);  
+                customerRepository.deleteById(id);
+                kafkaProducer.sendDeleteCustomerMessage(customerDTO); 
+                return Mono.empty();
+            });
+}
+
+    private CustomerDTO mapToDTO(CustomerEntity customerEntity) {
+        return new CustomerDTO(
+                customerEntity.getCustomer_id(),
+                customerEntity.getFirst_name(),
+                customerEntity.getLast_name(),
+                customerEntity.getEmail_personal(),
+                customerEntity.getEmail_office(),
+                customerEntity.getPhone_no(),
+                customerEntity.getFamily_member(),
+                customerEntity.getCreatedAt(),
+                customerEntity.getUpdatedAt()
+        );
     }
 
-// mapping entity to dto method
+    // mapping entity to dto method
     private Mono<CustomerDTO> mapToCustomerDTO(CustomerEntity saveNewCustomer) {
         CustomerDTO dto = new CustomerDTO(
                 saveNewCustomer.getCustomer_id(),
@@ -87,6 +120,7 @@ public class CustomerService {
                 saveNewCustomer.getEmail_personal(),
                 saveNewCustomer.getEmail_office(),
                 saveNewCustomer.getPhone_no(),
+                saveNewCustomer.getFamily_member(),
                 saveNewCustomer.getCreatedAt(),
                 saveNewCustomer.getUpdatedAt()
         );

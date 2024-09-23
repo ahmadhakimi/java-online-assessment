@@ -47,8 +47,8 @@ public class ProductController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteProduct(@PathVariable String id) {
+    public Mono<Void> deleteProduct(@PathVariable String id) {
         log.info("Calling URL deleteProduct");
-        productService.deleteProduct(id);
+        return productService.deleteProduct(id);
     }
 }

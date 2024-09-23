@@ -23,6 +23,7 @@ import java.util.NoSuchElementException;
 public class ProductService {
 
     private final ProductRepository productRepository;
+    private final KafkaProducerProductService kafkaProducer;
 
     public Mono<ProductDTO> createNewProduct (ProductDTO productDTO){
         log.info("Creating product: {}", productDTO);
@@ -32,13 +33,16 @@ public class ProductService {
                 .book_quantity(productDTO.book_quantity())
                 .build();
 
-        return Mono.just(productRepository.save(product)).flatMap(eachProduct -> mapProductToDTO(eachProduct));
+        return Mono.just(productRepository.save(product)).flatMap(eachProduct -> {
+            kafkaProducer.sendCreateProductMessage(productDTO);
+            return mapProductToDTO(eachProduct);
+        });
     }
 
     public Flux<ProductDTO> getAllProducts() {
         log.info("Get list of all products");
         List<ProductsEntity> productList = productRepository.findAll();
-        return Flux.fromIterable(productList).flatMap(product -> mapProductToDTO(product));
+        return Flux.fromIterable(productList).flatMap(this::mapProductToDTO);
     }
 
     public Mono<ProductDTO> getProductById(String id) {
@@ -50,36 +54,59 @@ public class ProductService {
     }
 
     public Mono<ProductDTO> updateProductById(String id, ProductDTO productDTO) {
-        log.info("Update customer ID {} details {}", id, productDTO);
-        ProductsEntity product = productRepository.findById(id).orElseThrow(() -> new NoSuchElementException("No product available"));
+        log.info("Update product ID {} details {}", id, productDTO);
 
-        return Mono.justOrEmpty(product).flatMap(existingProduct -> {
+        return Mono.justOrEmpty(productRepository.findById(id))
+                .flatMap(existingProduct -> {
 
-            boolean isUpdate = false;
+                    boolean isUpdated = false;
 
-            if(productDTO.book_title() != null) {
-                existingProduct.setBook_title(productDTO.book_title());
-                isUpdate = true;
-            }
-            if(productDTO.book_price() != null) {
-                existingProduct.setBook_price(productDTO.book_price());
-                isUpdate = true;
-            }
-            if(productDTO.book_quantity() != null) {
-                existingProduct.setBook_quantity(productDTO.book_quantity());
-                isUpdate = true;
-            }
-            if(isUpdate) {
-                existingProduct.setUpdatedAt(Date.from(Instant.now()));
-            }
-            ProductsEntity saveUpdatedProduct = productRepository.save(existingProduct);
-            return Mono.just(saveUpdatedProduct);
-        }).flatMap(newProduct -> mapProductToDTO(newProduct));
+                    if (productDTO.book_title() != null) {
+                        existingProduct.setBook_title(productDTO.book_title());
+                        isUpdated = true;
+                    }
+                    if (productDTO.book_price() != null) {
+                        existingProduct.setBook_price(productDTO.book_price());
+                        isUpdated = true;
+                    }
+                    if (productDTO.book_quantity() != null) {
+                        existingProduct.setBook_quantity(productDTO.book_quantity());
+                        isUpdated = true;
+                    }
+
+                    if (isUpdated) {
+                        existingProduct.setUpdatedAt(Date.from(Instant.now()));
+                        ProductsEntity updatedProduct = productRepository.save(existingProduct);
+
+                        kafkaProducer.sendUpdateProductMessage(mapToDTO(updatedProduct));
+
+                        return Mono.just(updatedProduct).flatMap(this::mapProductToDTO);
+                    } else {
+                        return Mono.just(existingProduct).flatMap(this::mapProductToDTO);
+                    }
+                });
     }
 
-    public void deleteProduct(String id) {
-        log.warn("deleting customer {}",id);
-        productRepository.deleteById(id);
+    public Mono<Void> deleteProduct(String id) {
+        log.warn("Deleting product with ID: {}", id);
+        return Mono.justOrEmpty(productRepository.findById(id))
+                .flatMap(product -> {
+                    ProductDTO productDTO = mapToDTO(product);
+                    productRepository.deleteById(id);
+                    kafkaProducer.sendDeleteProductMessage(productDTO);
+                    return Mono.empty();
+                });
+    }
+
+    private ProductDTO mapToDTO(ProductsEntity product) {
+        return new ProductDTO(
+                product.getBook_id(),
+                product.getBook_title(),
+                product.getBook_price(),
+                product.getBook_quantity(),
+                product.getCreatedAt(),
+                product.getUpdatedAt()
+        );
     }
 
     private Mono<ProductDTO> mapProductToDTO(ProductsEntity product) {

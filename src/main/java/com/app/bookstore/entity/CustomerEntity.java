@@ -10,6 +10,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Builder
@@ -28,6 +29,7 @@ public class CustomerEntity {
     private String email_personal;
     private String email_office;
     private String phone_no;
+    private List<String> family_member;
     @CreationTimestamp
     private Date createdAt;
     @UpdateTimestamp

@@ -33,7 +33,7 @@ public class KafkaProducerProductService {
             // Convert productDTO to a JSON message
             String message = objectMapper.writeValueAsString(new KafkaMessageProduct(action, productDTO));
             // Send the message to the Kafka topic
-            kafkaTemplate.send("product-topic", message);
+            kafkaTemplate.send("product-event-id", message);
         } catch (JsonProcessingException e) {
             throw new RuntimeException("Error serializing message", e);
         }

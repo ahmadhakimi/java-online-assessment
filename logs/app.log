@@ -35825,3 +35825,322 @@ org.apache.kafka.common.KafkaException: class org.apache.kafka.common.serializat
 2024-09-23 10:23:44 - Response Status: 200
 2024-09-23 10:30:50 - [Consumer clientId=consumer-bookstore-groupID-1, groupId=bookstore-groupID] Node -1 disconnected.
 2024-09-23 10:30:50 - [Consumer clientId=consumer-bookstore-groupID-2, groupId=bookstore-groupID] Node -1 disconnected.
+2024-09-23 10:31:40 - [Consumer clientId=consumer-bookstore-groupID-1, groupId=bookstore-groupID] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-09-23 10:31:40 - [Consumer clientId=consumer-bookstore-groupID-2, groupId=bookstore-groupID] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-09-23 10:31:40 - [Consumer clientId=consumer-bookstore-groupID-1, groupId=bookstore-groupID] Request joining group due to: consumer pro-actively leaving the group
+2024-09-23 10:31:40 - [Consumer clientId=consumer-bookstore-groupID-2, groupId=bookstore-groupID] Request joining group due to: consumer pro-actively leaving the group
+2024-09-23 10:31:40 - [Consumer clientId=consumer-bookstore-groupID-1, groupId=bookstore-groupID] Unsubscribed all topics or patterns and assigned partitions
+2024-09-23 10:31:40 - [Consumer clientId=consumer-bookstore-groupID-2, groupId=bookstore-groupID] Unsubscribed all topics or patterns and assigned partitions
+2024-09-23 10:31:40 - [Consumer clientId=consumer-bookstore-groupID-1, groupId=bookstore-groupID] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-09-23 10:31:40 - [Consumer clientId=consumer-bookstore-groupID-2, groupId=bookstore-groupID] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-09-23 10:31:40 - [Consumer clientId=consumer-bookstore-groupID-1, groupId=bookstore-groupID] Request joining group due to: consumer pro-actively leaving the group
+2024-09-23 10:31:40 - [Consumer clientId=consumer-bookstore-groupID-2, groupId=bookstore-groupID] Request joining group due to: consumer pro-actively leaving the group
+2024-09-23 10:31:40 - Metrics scheduler closed
+2024-09-23 10:31:40 - Metrics scheduler closed
+2024-09-23 10:31:40 - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-09-23 10:31:40 - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-09-23 10:31:40 - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-09-23 10:31:40 - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-09-23 10:31:40 - Metrics reporters closed
+2024-09-23 10:31:40 - Metrics reporters closed
+2024-09-23 10:31:40 - App info kafka.consumer for consumer-bookstore-groupID-1 unregistered
+2024-09-23 10:31:40 - App info kafka.consumer for consumer-bookstore-groupID-2 unregistered
+2024-09-23 10:31:40 - bookstore-groupID: Consumer stopped
+2024-09-23 10:31:40 - bookstore-groupID: Consumer stopped
+2024-09-23 10:31:40 - [Producer clientId=bookstore-producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2024-09-23 10:31:40 - Metrics scheduler closed
+2024-09-23 10:31:40 - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-09-23 10:31:40 - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-09-23 10:31:40 - Metrics reporters closed
+2024-09-23 10:31:40 - App info kafka.producer for bookstore-producer-1 unregistered
+2024-09-23 10:31:40 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-23 10:31:40 - HikariPool-1 - Shutdown initiated...
+2024-09-23 10:31:40 - HikariPool-1 - Shutdown completed.
+2024-09-23 10:39:16 - Starting BookstoreApplication using Java 21.0.2 with PID 11152 (C:\Users\USER\Desktop\IAP\Assessment\etiqa assessment\bookstore\target\classes started by VirtualBag in C:\Users\USER\Desktop\IAP\Assessment\etiqa assessment\bookstore)
+2024-09-23 10:39:16 - No active profile set, falling back to 1 default profile: "default"
+2024-09-23 10:39:18 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-23 10:39:18 - Finished Spring Data repository scanning in 164 ms. Found 2 JPA repository interfaces.
+2024-09-23 10:39:19 - Tomcat initialized with port 8080 (http)
+2024-09-23 10:39:19 - Initializing ProtocolHandler ["http-nio-8080"]
+2024-09-23 10:39:19 - Starting service [Tomcat]
+2024-09-23 10:39:19 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-09-23 10:39:19 - Initializing Spring embedded WebApplicationContext
+2024-09-23 10:39:19 - Root WebApplicationContext: initialization completed in 3174 ms
+2024-09-23 10:39:20 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-23 10:39:20 - HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-09-23 10:39:20 - HHH000026: Second-level cache disabled
+2024-09-23 10:39:21 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-23 10:39:21 - HikariPool-1 - Starting...
+2024-09-23 10:39:21 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5cf80dfb
+2024-09-23 10:39:21 - HikariPool-1 - Start completed.
+2024-09-23 10:39:21 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-23 10:39:23 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-23 10:39:23 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-23 10:39:24 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-23 10:39:25 - Exposing 1 endpoint beneath base path '/actuator'
+2024-09-23 10:39:25 - Starting ProtocolHandler ["http-nio-8080"]
+2024-09-23 10:39:25 - Tomcat started on port 8080 (http) with context path '/'
+2024-09-23 10:39:25 - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9093]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-bookstore-groupID-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = bookstore-groupID
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2024-09-23 10:39:25 - initializing Kafka metrics collector
+2024-09-23 10:39:26 - Kafka version: 3.7.1
+2024-09-23 10:39:26 - Kafka commitId: e2494e6ffb89f828
+2024-09-23 10:39:26 - Kafka startTimeMs: 1727059166075
+2024-09-23 10:39:26 - [Consumer clientId=consumer-bookstore-groupID-1, groupId=bookstore-groupID] Subscribed to topic(s): customer-event-id
+2024-09-23 10:39:26 - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9093]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-bookstore-groupID-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = bookstore-groupID
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2024-09-23 10:39:26 - initializing Kafka metrics collector
+2024-09-23 10:39:26 - Kafka version: 3.7.1
+2024-09-23 10:39:26 - Kafka commitId: e2494e6ffb89f828
+2024-09-23 10:39:26 - Kafka startTimeMs: 1727059166102
+2024-09-23 10:39:26 - [Consumer clientId=consumer-bookstore-groupID-2, groupId=bookstore-groupID] Subscribed to topic(s): product-event-id
+2024-09-23 10:39:26 - Started BookstoreApplication in 10.051 seconds (process running for 10.585)
+2024-09-23 10:39:26 - [Consumer clientId=consumer-bookstore-groupID-1, groupId=bookstore-groupID] Cluster ID: jy-YpicvR3K7Y4bX5v4dew
+2024-09-23 10:39:26 - [Consumer clientId=consumer-bookstore-groupID-2, groupId=bookstore-groupID] Cluster ID: jy-YpicvR3K7Y4bX5v4dew
+2024-09-23 10:39:35 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-23 10:39:35 - Initializing Servlet 'dispatcherServlet'
+2024-09-23 10:39:35 - Completed initialization in 3 ms
+2024-09-23 10:39:35 - Request HTTP: GET, Request URI: /swagger-ui.html
+2024-09-23 10:39:35 - Response Status: 302
+2024-09-23 10:39:35 - Request HTTP: GET, Request URI: /swagger-ui/index.html
+2024-09-23 10:39:35 - Response Status: 200
+2024-09-23 10:39:35 - Request HTTP: GET, Request URI: /swagger-ui/swagger-ui.css
+2024-09-23 10:39:35 - Request HTTP: GET, Request URI: /swagger-ui/index.css
+2024-09-23 10:39:35 - Request HTTP: GET, Request URI: /swagger-ui/swagger-ui-bundle.js
+2024-09-23 10:39:35 - Request HTTP: GET, Request URI: /swagger-ui/swagger-ui-standalone-preset.js
+2024-09-23 10:39:35 - Request HTTP: GET, Request URI: /swagger-ui/swagger-initializer.js
+2024-09-23 10:39:35 - Response Status: 200
+2024-09-23 10:39:35 - Response Status: 200
+2024-09-23 10:39:35 - Response Status: 200
+2024-09-23 10:39:35 - Response Status: 200
+2024-09-23 10:39:35 - Response Status: 200
+2024-09-23 10:39:35 - Request HTTP: GET, Request URI: /api-docs/swagger-config
+2024-09-23 10:39:35 - Response Status: 200
+2024-09-23 10:39:35 - Request HTTP: GET, Request URI: /api-docs
+2024-09-23 10:39:36 - Init duration for springdoc-openapi is: 642 ms
+2024-09-23 10:39:36 - Response Status: 200
+2024-09-23 10:42:37 - Request HTTP: GET, Request URI: /api-docs
+2024-09-23 10:42:37 - Response Status: 200
+2024-09-23 10:42:37 - Request HTTP: GET, Request URI: /favicon.ico
+2024-09-23 10:42:37 - Response Status: 404
+2024-09-23 10:48:26 - [Consumer clientId=consumer-bookstore-groupID-2, groupId=bookstore-groupID] Node -1 disconnected.
+2024-09-23 10:48:26 - [Consumer clientId=consumer-bookstore-groupID-1, groupId=bookstore-groupID] Node -1 disconnected.
+2024-09-23 10:58:27 - [Consumer clientId=consumer-bookstore-groupID-2, groupId=bookstore-groupID] Node -1 disconnected.
+2024-09-23 10:58:27 - [Consumer clientId=consumer-bookstore-groupID-1, groupId=bookstore-groupID] Node -1 disconnected.
+2024-09-23 11:25:59 - [Consumer clientId=consumer-bookstore-groupID-2, groupId=bookstore-groupID] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-09-23 11:25:59 - [Consumer clientId=consumer-bookstore-groupID-1, groupId=bookstore-groupID] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-09-23 11:25:59 - [Consumer clientId=consumer-bookstore-groupID-2, groupId=bookstore-groupID] Request joining group due to: consumer pro-actively leaving the group
+2024-09-23 11:25:59 - [Consumer clientId=consumer-bookstore-groupID-1, groupId=bookstore-groupID] Request joining group due to: consumer pro-actively leaving the group
+2024-09-23 11:25:59 - [Consumer clientId=consumer-bookstore-groupID-1, groupId=bookstore-groupID] Unsubscribed all topics or patterns and assigned partitions
+2024-09-23 11:25:59 - [Consumer clientId=consumer-bookstore-groupID-2, groupId=bookstore-groupID] Unsubscribed all topics or patterns and assigned partitions
+2024-09-23 11:25:59 - [Consumer clientId=consumer-bookstore-groupID-1, groupId=bookstore-groupID] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-09-23 11:25:59 - [Consumer clientId=consumer-bookstore-groupID-2, groupId=bookstore-groupID] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-09-23 11:25:59 - [Consumer clientId=consumer-bookstore-groupID-1, groupId=bookstore-groupID] Request joining group due to: consumer pro-actively leaving the group
+2024-09-23 11:25:59 - [Consumer clientId=consumer-bookstore-groupID-2, groupId=bookstore-groupID] Request joining group due to: consumer pro-actively leaving the group
+2024-09-23 11:25:59 - Metrics scheduler closed
+2024-09-23 11:25:59 - Metrics scheduler closed
+2024-09-23 11:25:59 - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-09-23 11:25:59 - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-09-23 11:25:59 - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-09-23 11:25:59 - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2024-09-23 11:25:59 - Metrics reporters closed
+2024-09-23 11:25:59 - Metrics reporters closed
+2024-09-23 11:25:59 - App info kafka.consumer for consumer-bookstore-groupID-2 unregistered
+2024-09-23 11:25:59 - App info kafka.consumer for consumer-bookstore-groupID-1 unregistered
+2024-09-23 11:25:59 - bookstore-groupID: Consumer stopped
+2024-09-23 11:25:59 - bookstore-groupID: Consumer stopped
+2024-09-23 11:25:59 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-23 11:25:59 - HikariPool-1 - Shutdown initiated...
+2024-09-23 11:25:59 - HikariPool-1 - Shutdown completed.

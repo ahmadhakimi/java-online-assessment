@@ -114,6 +114,14 @@ docker compose up -d
   - **Method**: `DELETE`
 
 ```
+## API Documentation and Swagger
+
+### api documentation using swagger ui
+(http://localhost:8080/swagger-ui/index.html#/)
+
+### Spring docs openAPI
+(http://localhost:8080/api-docs)
+
 ## Testing
 
 To run the unit tests:

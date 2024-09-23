@@ -41,7 +41,7 @@ spring.jpa.hibernate.ddl-auto=update
 
 ### Customer Endpoints
 
-- **Create Customer**
+- ** Create Customer **
   - **URL**: `/api/customers`
   - **Method**: `POST`
   - **Request Body**:

@@ -95,25 +95,33 @@ docker compose up -d
     ```
 
 - **Get All Products**
-  - **URL**: `/api/products`
+  - **URL**: `/api/product`
   - **Method**: `GET`
   - **Response**: List of products
 
 - **Get Product by ID**
-  - **URL**: `/api/products/{id}`
+  - **URL**: `/api/product/{id}`
   - **Method**: `GET`
   - **Response**: Product details
 
 - **Update Product**
-  - **URL**: `/api/products/{id}`
+  - **URL**: `/api/product/{id}`
   - **Method**: `PUT`
   - **Request Body**: Same as Create Product
 
 - **Delete Product**
-  - **URL**: `/api/products/{id}`
+  - **URL**: `/api/product/{id}`
   - **Method**: `DELETE`
 
 ```
+## API Documentation and Swagger
+
+### api documentation using swagger ui
+(http://localhost:8080/swagger-ui/index.html#/)
+
+### Spring docs openAPI
+(http://localhost:8080/api-docs)
+
 ## Testing
 
 To run the unit tests:

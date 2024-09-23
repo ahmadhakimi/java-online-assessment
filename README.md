@@ -33,6 +33,11 @@ spring.jpa.hibernate.ddl-auto=update
 ``` bash
 ./mvnw clean install
 ```
+### Run Docker 
+
+``` bash
+docker compose up -d
+```
 
 
 #### 4. **API Endpoints**
